@@ -1,4 +1,4 @@
-# First Step to Game AI - Unbetable Tic-Tac-Toe AI
+# First Step to Game AI - Unbeatable Tic-Tac-Toe AI
 
 ## New knowledges learned from this projects
 
