@@ -21,6 +21,7 @@ def clear_screen() -> None:
     print("\033c", end="")
 
 def blink(text: str) -> str:
+    # return f"{text}"
     return f"\033[5m{text}\033[0m"
 
 def print_blinking(cells: Iterable[str], positions: Iterable[int]) -> None:
