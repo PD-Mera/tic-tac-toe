@@ -1,6 +1,7 @@
 import abc
 import random
 import time
+from typing import Union
 
 from src.logic.exceptions import InvalidMove
 from src.logic.models import GameState, Mark, Move
@@ -18,7 +19,7 @@ class Player(metaclass=abc.ABCMeta):
             raise InvalidMove("It's the other player's turn")
 
     @abc.abstractmethod
-    def get_move(self, game_state: GameState) -> Move | None:
+    def get_move(self, game_state: GameState) -> Union[Move, None]:
         """Return the current player's move in the given game state."""
 
 class ComputerPlayer(Player, metaclass=abc.ABCMeta):
@@ -26,16 +27,16 @@ class ComputerPlayer(Player, metaclass=abc.ABCMeta):
         super().__init__(mark)
         self.delay_seconds = delay_seconds
 
-    def get_move(self, game_state: GameState) -> Move | None:
+    def get_move(self, game_state: GameState) -> Union[Move, None]:
         time.sleep(self.delay_seconds)
         return self.get_computer_move(game_state)
 
     @abc.abstractmethod
-    def get_computer_move(self, game_state: GameState) -> Move | None:
+    def get_computer_move(self, game_state: GameState) -> Union[Move, None]:
         """Return the computer's move in the given game state."""
 
 class RandomComputerPlayer(ComputerPlayer):
-    def get_computer_move(self, game_state: GameState) -> Move | None:
+    def get_computer_move(self, game_state: GameState) -> Union[Move, None]:
         try:
             return random.choice(game_state.possible_moves)
         except IndexError:

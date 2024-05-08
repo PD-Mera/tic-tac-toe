@@ -1,5 +1,11 @@
 import sys
-sys.path.append("/home/data/dongtrinh/tic-tac-toe-ai")
+import os
+from pathlib import Path
+
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))  # add ROOT to PATH
 
 from src.game.engine import TicTacToe
 from src.game.players import RandomComputerPlayer

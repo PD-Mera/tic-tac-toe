@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Callable #, TypeAlias
+from typing import Union, Callable #, TypeAlias
 
 from src.game.players import Player
 from src.game.renderers import Renderer
@@ -8,14 +8,14 @@ from src.logic.models import GameState, Grid, Mark
 from src.logic.validators import validate_players
 
 # ErrorHandler: TypeAlias = Callable[[Exception], None]
+ErrorHandler = Callable[[Exception], None]
 
 @dataclass(frozen=True)
 class TicTacToe:
     player1: Player
     player2: Player
     renderer: Renderer
-    # error_handler: ErrorHandler | None = None
-    error_handler: Callable[[Exception], None] | None = None
+    error_handler: Union[ErrorHandler, None] = None
 
     def __post_init__(self):
         validate_players(self.player1, self.player2)
