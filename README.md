@@ -1,11 +1,30 @@
 # First Step to Game AI - Unbeatable Tic-Tac-Toe AI
 
+## How to run
+
+### Console
+
+![](./assets/console_play.png)
+
+Run in terminal
+
+``` bash
+cd frontends/
+python -m console -X human -O random
+```
+
+Or modify code in `frontends/play.py` and run
+
+``` bash
+python frontends/play.py
+```
+
 ## New knowledges learned from this projects
 
 - Using `enum.Enum` in python class 
 - Define mixin class `Mark(str, enum.Enum)`
 - Using a `@property` for a class
-- Using `from __future__ import annotations` to avoid circular reference
+- Using `from __future__ import annotations` to postponed evaluation of annotations
 - Using `@dataclass(frozen=True)` to make a class with immutable instances
 - Learning some regex syntax
     
@@ -27,6 +46,7 @@
     - `Callable`: generic type that represents a callable object, can be called using the function call syntax `()`
     - ~~`TypeAlias`: Pass a name to a type to easy code reading~~ (Do not support in python 3.8)
     - `Iterable`: a generic type that represents any object that can be iterated over, can be iterated with `for`
+    - `NameTuple`: a generic type to make the code slightly cleaner and more expressive
 
 - Don’t need to use the pass statement or the ellipsis literal (...) as a class body placeholder if you use a docstring, which can provide additional documentation.
 - `abc`: An abstract class is one that you can’t instantiate because its objects wouldn’t stand on their own
@@ -51,6 +71,10 @@
 
     - `\N{party popper}` will render the 🎉 emoji
     - `\N{neutral face}` will render the 😐 emoji
+
+## TODO
+
+- Continue [Step 4: Equip the Computer With Artificial Intelligence](https://realpython.com/tic-tac-toe-ai-python/#step-4-equip-the-computer-with-artificial-intelligence) to create unnbeatble AI bot
 
 ## Reference
 
