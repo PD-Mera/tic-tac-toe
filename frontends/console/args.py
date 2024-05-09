@@ -1,14 +1,15 @@
 import argparse
 from typing import NamedTuple
 
-from src.game.players import Player, RandomComputerPlayer
+from src.game.players import Player, RandomComputerPlayer, MinimaxComputerPlayer
 from src.logic.models import Mark
 
-from .players import ConsolePlayer
+from players import ConsolePlayer
 
 PLAYER_CLASSES = {
     "human": ConsolePlayer,
     "random": RandomComputerPlayer,
+    "minimax": MinimaxComputerPlayer,
 }
 
 class Args(NamedTuple):
@@ -28,7 +29,7 @@ def parse_args() -> Args:
         "-O",
         dest="player_o",
         choices=PLAYER_CLASSES.keys(),
-        default="random",
+        default="minimax",
     )
     parser.add_argument(
         "--starting",

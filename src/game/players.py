@@ -4,6 +4,7 @@ import time
 from typing import Union
 
 from src.logic.exceptions import InvalidMove
+from src.logic.minimax import find_best_move
 from src.logic.models import GameState, Mark, Move
 
 class Player(metaclass=abc.ABCMeta):
@@ -37,7 +38,11 @@ class ComputerPlayer(Player, metaclass=abc.ABCMeta):
 
 class RandomComputerPlayer(ComputerPlayer):
     def get_computer_move(self, game_state: GameState) -> Union[Move, None]:
-        try:
-            return random.choice(game_state.possible_moves)
-        except IndexError:
-            return None
+        return game_state.make_random_move()
+        
+class MinimaxComputerPlayer(ComputerPlayer):
+    def get_computer_move(self, game_state: GameState) -> Union[Move, None]:
+        if game_state.game_not_started:
+            return game_state.make_random_move()
+        else:
+            return find_best_move(game_state)

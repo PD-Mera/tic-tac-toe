@@ -10,7 +10,7 @@ Run in terminal
 
 ``` bash
 cd frontends/
-python -m console -X human -O random
+python -m console -X human -O minimax
 ```
 
 Or modify code in `frontends/play.py` and run
@@ -72,6 +72,8 @@ python frontends/play.py
     - `\N{party popper}` will render the 🎉 emoji
     - `\N{neutral face}` will render the 😐 emoji
 
+- Using `functools.partial()` to produce a new function with fewer parameters by prepopulating one or more of the original function’s arguments with concrete values
+
 ## TODO
 
 - Continue [Step 4: Equip the Computer With Artificial Intelligence](https://realpython.com/tic-tac-toe-ai-python/#step-4-equip-the-computer-with-artificial-intelligence) to create unnbeatble AI bot
@@ -79,5 +81,6 @@ python frontends/play.py
 ## Reference
 
 - [Build a Tic-Tac-Toe Game Engine With an AI Player in Python](https://realpython.com/tic-tac-toe-ai-python/)
+- [Minimax in Python: Learn How to Lose the Game of Nim](https://realpython.com/python-minimax-nim/)
 - [Regular Expressions (Regex)](https://www3.ntu.edu.sg/home/ehchua/programming/howto/Regexe.html)
 - [ANSI escape code](https://en.wikipedia.org/wiki/ANSI_escape_code)
